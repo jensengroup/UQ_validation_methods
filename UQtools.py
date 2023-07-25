@@ -55,10 +55,10 @@ def expected_rho(uncertainties):
     return rho, sim_errors
 
 
-def NLL(uncertainties, predictions, observed):
+def NLL(uncertainties, errors):
     NLL = 0
-    for uncertainty, y_pred, y in zip(uncertainties, predictions, observed):
-        temp = math.log(2*np.pi*uncertainty**2)+(y_pred-y)**2/uncertainty**2
+    for uncertainty, error in zip(uncertainties, errors):
+        temp = math.log(2*np.pi*uncertainty**2)+(error)**2/uncertainty**2
         NLL += temp
     
     NLL = NLL/(2*len(uncertainties))
