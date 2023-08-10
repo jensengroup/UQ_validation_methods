@@ -89,7 +89,7 @@ def calibration_curve(errors_sigma):
     return gaus_pred, errors_observed
 
 
-def plot_calibration_curve(gaus_pred, errors_observed):
+def plot_calibration_curve(gaus_pred, errors_observed, mis_cal):
     fig, ax = plt.subplots(figsize=(8,5))
     ax.fill_between(gaus_pred, gaus_pred, errors_observed, color="purple", alpha=0.4, label="miscalibration area = {:0.3f}".format(mis_cal))
     ax.plot(gaus_pred, errors_observed, color="purple", alpha=1)
