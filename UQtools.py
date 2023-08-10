@@ -89,6 +89,17 @@ def calibration_curve(errors_sigma):
     return gaus_pred, errors_observed
 
 
+def plot_calibration_curve(gaus_pred, errors_observed):
+    fig, ax = plt.subplots(figsize=(8,5))
+    ax.fill_between(gaus_pred, gaus_pred, errors_observed, color="purple", alpha=0.4, label="miscalibration area = {:0.3f}".format(mis_cal))
+    ax.plot(gaus_pred, errors_observed, color="purple", alpha=1)
+    ax.plot(np.arange(0,1,0.01),np.arange(0,1,0.01), linestyle='dashed', color='k')
+    ax.set_xlabel("expected fraction of errors", fontsize=14)
+    ax.set_ylabel("observed fraction of errors", fontsize=14)
+    ax.legend(fontsize=14, loc='lower right')
+    return fig
+
+
 def take_closest(myList, myNumber):
     """
     Assumes myList is sorted. Returns closest value to myNumber.
