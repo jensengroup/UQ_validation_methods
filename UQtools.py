@@ -100,6 +100,24 @@ def plot_calibration_curve(gaus_pred, errors_observed, mis_cal):
     return fig
 
 
+def plot_Z_scores(errors, uncertainties):
+    Z_scores = errors/uncertainties
+    N_bins = 29
+    xmin, xmax = -7,7
+    y, bin_edges = np.histogram(Z_scores, bins=N_bins, range=(xmin, xmax))
+    bin_width = bin_edges[1] - bin_edges[0]
+    x = 0.5*(bin_edges[1:] + bin_edges[:-1])
+    sy = np.sqrt(y)
+    target_values = np.array([len(errors)*bin_width*norm.pdf(x_value) for x_value in x])
+    fig, ax = plt.subplots(figsize=(8, 5))
+    ax.hist(y_values, bins=N_bins, range=(xmin, xmax), color='purple', alpha=0.3)
+    ax.errorbar(x, y, sy, fmt='.', color='k')
+    ax.plot(np.arange(-7, 7, 0.1), len(errors)*bin_width*norm.pdf(np.arange(-7, 7, 0.1), 0, 1), color='k')
+    ax.set_xlabel("error (Z)", fontsize=16)
+    ax.set_ylabel("count", fontsize=16)
+    ax.set_xlim([-7, 7])
+    return fig, ax
+
 def take_closest(myList, myNumber):
     """
     Assumes myList is sorted. Returns closest value to myNumber.
