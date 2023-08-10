@@ -110,7 +110,7 @@ def plot_Z_scores(errors, uncertainties):
     sy = np.sqrt(y)
     target_values = np.array([len(errors)*bin_width*norm.pdf(x_value) for x_value in x])
     fig, ax = plt.subplots(figsize=(8, 5))
-    ax.hist(y_values, bins=N_bins, range=(xmin, xmax), color='purple', alpha=0.3)
+    ax.hist(Z_scores, bins=N_bins, range=(xmin, xmax), color='purple', alpha=0.3)
     ax.errorbar(x, y, sy, fmt='.', color='k')
     ax.plot(np.arange(-7, 7, 0.1), len(errors)*bin_width*norm.pdf(np.arange(-7, 7, 0.1), 0, 1), color='k')
     ax.set_xlabel("error (Z)", fontsize=16)
