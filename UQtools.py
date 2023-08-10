@@ -14,6 +14,15 @@ from scipy.integrate import quad
 from bisect import bisect_left
 
 
+def order_sig_and_errors(sigmas, errors):
+    ordered_df = pd.DataFrame()
+    ordered_df["uq"] = sigmas
+    ordered_df["errors"] = errors
+    ordered_df["abs_z"] = abs(ordered_df.errors)/ordered_df.uq
+    ordered_df = ordered_df.sort_values(by="uq")
+    return ordered_df
+
+
 def spearman_rank_corr(v1, v2):
     v1_ranked = ss.rankdata(v1)
     v2_ranked = ss.rankdata(v2)
