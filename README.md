@@ -27,6 +27,6 @@ Some of the models used in the study were published as part of this [paper](http
 The remaining models can be found [here](https://sid.erda.dk/sharelink/dNF1IjDPQB)
 
 ## Data
-Uncertainty estimates and observed errors for the ML models/UQ methods are also found here(https://sid.erda.dk/sharelink/dNF1IjDPQB)
+Uncertainty estimates and observed errors for the ML models/UQ methods are also found [here](https://sid.erda.dk/sharelink/dNF1IjDPQB)
 
 
