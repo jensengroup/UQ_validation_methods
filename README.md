@@ -4,6 +4,12 @@ Code used and described in
 
 * "Uncertain of uncertainties? A comparison of uncertainty quantification metrics for chemical data sets"
 
+## Installation
+You can install with `pip` by running
+```
+pip install git+https://github.com/jensengroup/UQ_validation_methods
+```
+
 ## Demo of evaluation metrics
 
 Functions for the  evaluation metrics used in the above study are collected in ```UQtools.py```.
